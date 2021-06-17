@@ -13,7 +13,16 @@
 <body>
 <div>
 
-	<div id="c_hero" class="container" style="background: none !important; border: none !important">
+    <header id="header">
+        <div class="container">
+            <img src="images/icon.png">
+            <a href="#">STAKE</a>
+            <a href="#">AIRDROP</a>
+            <a href="#">PRESALE</a>
+        </div>
+    </header>
+
+	<div id="hero" class="container">
 		<img src="images/hero.png">
 	</div>
 	
@@ -94,6 +103,10 @@
                 Let's talk about tokens.
             </h1>
             <hr>
+            <br>
+            <h5><b>0x00200000400</b></h5>
+            <br>
+            <br>
             <h6>Presale Info<h6>
             <h5>500,000 <b>$SAFEPONY</b> per <b>1 BNB</b></h5>
             <h5>MIN BUY: <b>0.1BNB</b> | MAX BUY: <b>20BNB</b></h5>
@@ -209,5 +222,15 @@
 	</div>
 	
 </div>
+<script>
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+        document.getElementById("header").classList.add("shown");
+    } else {
+        document.getElementById("header").classList.remove("shown");
+    }
+}
+</script>
 </body>
 </html>

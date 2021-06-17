@@ -87,7 +87,7 @@ a { font-weight: 700; color: #ffa56c !important; }
 .container:not(:first-child) { 
 	margin-top: 32px;
 }
-.container:not(#c_hero) {
+.container:not(#hero) {
 	width: 100%;
 	max-width: 800px;
 	min-width: 260px;
@@ -108,30 +108,52 @@ a { font-weight: 700; color: #ffa56c !important; }
 		margin-top: 8px;
 	}
 
-#c_hero { box-shadow: none; }
+#hero { box-shadow: none; }
 
-#c_hero img { max-width: 300px; margin: 64px auto; display: block; }
+#hero img { max-width: 300px; margin: 64px auto; display: block; }
 
 [highlight] { color: red !important; }
 
-#quot {
-	animation: pulse 3s infinite;
-	color: #fae5c5;
+header {
+    position: fixed;
+    top: -120px;
+    left: 0px;
+    background: #03000f;
+    height: 100px;
+    display: block;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0px 2px 8px #000c, inset 0px -1px 3px -2px #fff8, inset 0px 2px 3px #000;
+    transition: top 0.5s;
 }
 
-@keyframes pulse {
-	0% {
-		text-shadow: 0px 0px 16px #de4444;
-	}
+header.shown {
+    top: 0px !important;
+}
 
-	50% {
-		text-shadow: 0px 0px 12px #f19e09;
-	}
+header div {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 20px 20px !important;
+}
 
-	100% {
-		text-shadow: 0px 0px 16px #de4444;
-	}
+header div > img {
+    height: 60px;
+}
 
+header div > a {
+    display: inline-block;
+    height: 60px;
+    padding: 20px 10px;
+    background: #03000f;
+    float: right;
+    border-left: thin solid #8b485a;
+    color: #a3a0ae !important;
+    text-decoration: none !important;
+}
+
+header div > a:last-child {
+    border-left: none;
 }
 
 input[type="number"] {
