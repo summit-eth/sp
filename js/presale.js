@@ -206,7 +206,7 @@ const buyPresale = async () => {
         safepony.methods.buyPresale().send({from:addr, value: bnb}, (err, res) => {
             if(!err) {
                 console.log(res);
-                alert("You have bought our presale! Please wait while you receive your $SAFEPONY.");
+                alert("You have bought our presale! Please wait while you receive your $SPP.");
             } else {
                 alert("An error occured.");
                 console.log(err);

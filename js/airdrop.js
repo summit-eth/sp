@@ -216,7 +216,7 @@ const claimAirdrop = async () => {
     safepony.methods.claimAirdrop().send({from:addr}, (err, res) => {
         if(!err) {
             console.log(res);
-            alert("You have claimed your Airdrop! Please wait while you receive your $SAFEPONY.");
+            alert("You have claimed your Airdrop! Please wait while you receive your $SPP.");
         } else {
             alert("An error occured.");
             console.log(err);
