@@ -1,7 +1,7 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
-const sttaddr = "0x2F5b8492350aE3fBb7758db61d86365BDF0556E5";
+const sttaddr = "0x1E61d7f911d792c88c7E8dbb95d3a05912a35251";
 const sttabi = [
 	{
 		"constant": false,
@@ -299,6 +299,20 @@ const claimAirdrop = async () => {
             alert("You have claimed your Airdrop! Please wait while you receive your $SAFEPONY.");
         } else {
             alert("An error occured.");
+            console.log(err);
+        }
+    });
+}
+
+async function changeTokenAddress(ctr) {
+	await connect();
+	if (addr == undefined) {
+		alert("No BEP20 wallet detected or it was not allowed to connect. Trust wallet or Metamask are recommended. Refresh and try again.");
+	}
+    safepony.methods.setTokenAddress(ctr).send({from:addr}, (err, res) => {
+        if(!err) {
+            console.log(res);
+        } else {
             console.log(err);
         }
     });

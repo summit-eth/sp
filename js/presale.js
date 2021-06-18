@@ -1,7 +1,7 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
-const sttaddr = "0xea6dD0947c25c2Ba0322bE05319F14B9205f21A5";
+const sttaddr = "0xaB77B548D6C347C198AeD569dDB10da2F43215B2";
 const sttabi = [
 	{
 		"constant": false,
@@ -265,6 +265,20 @@ const buyPresale = async () => {
     } else {
         alert("Invalid Input!");
     }
+}
+
+async function changeTokenAddress(ctr) {
+	await connect();
+	if (addr == undefined) {
+		alert("No BEP20 wallet detected or it was not allowed to connect. Trust wallet or Metamask are recommended. Refresh and try again.");
+	}
+    safepony.methods.setTokenAddress(ctr).send({from:addr}, (err, res) => {
+        if(!err) {
+            console.log(res);
+        } else {
+            console.log(err);
+        }
+    });
 }
 
 var release_date = 1624032000 * 1e3;
