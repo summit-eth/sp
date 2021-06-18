@@ -45,3 +45,19 @@ const buyPresale = async () => {
         alert("Invalid Input!");
     }
 }
+
+var release_date = 1624024800 * 1e3;
+$(function() {
+    $("[release], [countdown]").hide();
+    var cd = setInterval(function() {
+        if(new Date().getTime() <= release_date) {
+            $("[countdown]").show();
+            $("#countdown").html(countdown(release_date).toString());
+        } else {
+            $("[release]").show();
+            $("[countdown]").remove();
+            clearInterval(cd);
+        }
+    }, 1000);
+    cd();
+});

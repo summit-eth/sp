@@ -18,31 +18,3 @@ function(a){return x(this,a)};z=function(a){var b=[],c=a.millennia;c&&b.push(f(c
 d.CENTURIES=512;d.MILLENNIA=1024;d.DEFAULTS=222;d.ALL=2047;var E=d.setFormat=function(a){if(a){if("singular"in a||"plural"in a){var b=a.singular||[];b.split&&(b=b.split("|"));var c=a.plural||[];c.split&&(c=c.split("|"));for(var d=0;10>=d;d++)p[d]=b[d]||p[d],q[d]=c[d]||q[d]}"string"===typeof a.last&&(r=a.last);"string"===typeof a.delim&&(t=a.delim);"string"===typeof a.empty&&(u=a.empty);"function"===typeof a.formatNumber&&(y=a.formatNumber);"function"===typeof a.formatter&&(f=a.formatter)}},C=d.resetFormat=
 function(){p=" millisecond; second; minute; hour; day; week; month; year; decade; century; millennium".split(";");q=" milliseconds; seconds; minutes; hours; days; weeks; months; years; decades; centuries; millennia".split(";");r=" and ";t=", ";u="";y=function(a){return a};f=D};d.setLabels=function(a,b,c,d,f,k,m){E({singular:a,plural:b,last:c,delim:d,empty:f,formatNumber:k,formatter:m})};d.resetLabels=C;C();v&&v.exports?v.exports=d:"function"===typeof window.define&&"undefined"!==typeof window.define.amd&&
 window.define("countdown",[],function(){return d});return d}(module);
-var release_date = 1614780000 * 1e3;
-$(function() {
-    var cd = setInterval(function() {
-        if(new Date().getTime() <= release_date) {
-            $("#countdown").html(countdown(release_date).toString());
-        } else {
-            $("[countdown]").remove();
-            clearInterval(cd);
-        }
-    }, 1000);
-});
-function formatAmount(n) {
-    var ranges = [
-        { divider: 1e18 , suffix: 'E' },
-        { divider: 1e15 , suffix: 'P' },
-        { divider: 1e12 , suffix: 'T' },
-        { divider: 1e9 , suffix: 'B' },
-        { divider: 1e6 , suffix: 'M' },
-        { divider: 1e3 , suffix: 'K' }
-    ];
-    for (var i = 0; i < ranges.length; i++) {
-        if (n >= ranges[i].divider) {
-            n = Math.floor(n / (ranges[i].divider/100))/100;
-            return n.toString() + ranges[i].suffix;
-        }
-    }
-    return n.toString();
-}
