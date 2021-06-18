@@ -79,6 +79,16 @@ body {
 	background-repeat: no-repeat;
 }
 
+body.airdrop {
+	background-image: url(../images/bamboo.jpg?v=2);
+	background-attachment: scroll;
+}
+
+body.presale {
+	background-image: url(../images/narnia.jpg?v=2);
+	background-attachment: scroll;
+}
+
 body { padding: 0px 16px 8px 16px; }
 
 b { font-weight: 700; color: #ffa56c !important; }
@@ -107,6 +117,10 @@ a { font-weight: 700; color: #ffa56c !important; }
 	.container .sub:not(:first-child) {
 		margin-top: 8px;
 	}
+    
+    .sub.left > * {
+        text-align: left !important;
+    }
 
 #hero { box-shadow: none; }
 
@@ -115,19 +129,30 @@ a { font-weight: 700; color: #ffa56c !important; }
 [highlight] { color: red !important; }
 
 header {
-    position: fixed;
-    top: -120px;
     left: 0px;
     background: #03000f;
     height: 100px;
     display: block;
     width: 100%;
     z-index: 100;
-    box-shadow: 0px 2px 8px #000c, inset 0px -1px 3px -2px #fff8, inset 0px 2px 3px #000;
-    transition: top 0.5s;
 }
 
-header.shown {
+header.fixed {
+    opacity: 0.9;
+    position: absolute;
+    top: 0px;
+    box-shadow: inset 0px -1px 3px -2px #fff8, inset 0px 2px 3px #000;
+}
+
+header:not(.fixed) {
+    position: fixed;
+    top: -120px;
+    opacity: 0;
+    box-shadow: 0px 2px 8px #000c, inset 0px -1px 3px -2px #fff8, inset 0px 2px 3px #000;
+    transition: top 0.5s, opacity 1s;
+}
+header.shown:not(.fixed) {
+    opacity: 1;
     top: 0px !important;
 }
 
@@ -143,10 +168,11 @@ header div > img {
 
 header div > a {
     display: inline-block;
-    height: 60px;
-    padding: 20px 10px;
+    height: 40px;
+    padding: 10px 10px;
     background: #03000f;
     float: right;
+    margin-top: 10px;
     border-left: thin solid #8b485a;
     color: #d3d0de !important;
     text-decoration: none !important;
@@ -161,6 +187,17 @@ header div > a:last-child {
     border-left: none;
 }
 
+input {
+    background: #000c;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+}
+
 input[type="number"] {
 	background: transparent;
 	padding: 16px;
@@ -168,10 +205,10 @@ input[type="number"] {
 	border-bottom: 2px solid #ccc;
 	font-size: 32px;
 	width: 100%;
-	color: #555;
+	color: #fff;
 	font-weight: 900;
 	transition: border-color 1s;
-	background-image: url("../img/trx.png");
+	background-image: url("../images/bnb.png");
 	background-size: 48px 48px;
 	background-position: right center;
 	background-repeat: no-repeat;
