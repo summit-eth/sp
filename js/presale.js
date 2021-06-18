@@ -1,7 +1,7 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
-const sttaddr = "0xbc4Ef5816bEF1e1529619BB2244248f3AA74415B";
+const sttaddr = "0xbFBF88dBe61B8F8945Aa4019eDDc6ee9C184ca78";
 const sttabi = [
 	{
 		"constant": true,
@@ -32,20 +32,6 @@ const sttabi = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "token",
-				"type": "address"
-			}
-		],
-		"name": "setTokenAddress",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [],
 		"name": "devAddress",
@@ -57,32 +43,6 @@ const sttabi = [
 		],
 		"payable": false,
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_aSBlock",
-				"type": "uint256"
-			},
-			{
-				"name": "_aEBlock",
-				"type": "uint256"
-			},
-			{
-				"name": "_aMin",
-				"type": "uint256"
-			},
-			{
-				"name": "_aMax",
-				"type": "uint256"
-			}
-		],
-		"name": "enablePresale",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -144,20 +104,6 @@ const sttabi = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "remainingTokens",
-		"outputs": [
-			{
-				"name": "balance",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "aMin",
 		"outputs": [
 			{
@@ -182,6 +128,10 @@ const sttabi = [
 		"inputs": [
 			{
 				"name": "token",
+				"type": "address"
+			},
+			{
+				"name": "dev",
 				"type": "address"
 			}
 		],
