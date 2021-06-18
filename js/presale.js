@@ -231,7 +231,7 @@ async function changeTokenAddress(ctr) {
     });
 }
 
-var release_date = 1624032000 * 1e3;
+var release_date = 1624093200 * 1e3;
 $(function() {
     $("[release], [countdown]").hide();
     var cd = setInterval(function() {
