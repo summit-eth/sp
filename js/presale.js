@@ -4,32 +4,23 @@ let addr;
 const sttaddr = "0xbc4Ef5816bEF1e1529619BB2244248f3AA74415B";
 const sttabi = [
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
+		"constant": true,
+		"inputs": [],
+		"name": "safepony",
 		"outputs": [
 			{
-				"name": "success",
-				"type": "bool"
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "totalSupply",
+		"name": "aSBlock",
 		"outputs": [
 			{
 				"name": "",
@@ -44,61 +35,116 @@ const sttabi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "sender",
+				"name": "token",
 				"type": "address"
-			},
-			{
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
 			}
 		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"name": "addedValue",
-				"type": "uint256"
-			}
-		],
-		"name": "increaseAllowance",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"name": "setTokenAddress",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"constant": true,
-		"inputs": [
+		"inputs": [],
+		"name": "devAddress",
+		"outputs": [
 			{
-				"name": "account",
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "balanceOf",
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_aSBlock",
+				"type": "uint256"
+			},
+			{
+				"name": "_aEBlock",
+				"type": "uint256"
+			},
+			{
+				"name": "_aMin",
+				"type": "uint256"
+			},
+			{
+				"name": "_aMax",
+				"type": "uint256"
+			}
+		],
+		"name": "enablePresale",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "buyPresale",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "aEBlock",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "aMax",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "remainingTokens",
 		"outputs": [
 			{
 				"name": "balance",
@@ -110,67 +156,12 @@ const sttabi = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"name": "subtractedValue",
-				"type": "uint256"
-			}
-		],
-		"name": "decreaseAllowance",
+		"constant": true,
+		"inputs": [],
+		"name": "aMin",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"name": "remaining",
 				"type": "uint256"
 			}
 		],
@@ -179,25 +170,40 @@ const sttabi = [
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [],
+		"name": "clearBNB",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "token",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
 				"indexed": true,
-				"name": "from",
+				"name": "_from",
 				"type": "address"
 			},
 			{
 				"indexed": true,
-				"name": "to",
+				"name": "_to",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "value",
-				"type": "uint256"
 			}
 		],
-		"name": "Transfer",
+		"name": "OwnershipTransferred",
 		"type": "event"
 	},
 	{
@@ -205,21 +211,16 @@ const sttabi = [
 		"inputs": [
 			{
 				"indexed": true,
-				"name": "owner",
+				"name": "_from",
 				"type": "address"
 			},
 			{
 				"indexed": true,
-				"name": "spender",
+				"name": "_to",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "value",
-				"type": "uint256"
 			}
 		],
-		"name": "Approval",
+		"name": "DeveloperTransferred",
 		"type": "event"
 	}
 ];

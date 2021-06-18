@@ -4,32 +4,23 @@ let addr;
 const sttaddr = "0xfD622D63e3864C94EC659c7fE33ecCE4099cf4e5";
 const sttabi = [
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
+		"constant": true,
+		"inputs": [],
+		"name": "safepony",
 		"outputs": [
 			{
-				"name": "success",
-				"type": "bool"
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "totalSupply",
+		"name": "aSBlock",
 		"outputs": [
 			{
 				"name": "",
@@ -44,19 +35,48 @@ const sttabi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "sender",
+				"name": "token",
 				"type": "address"
-			},
+			}
+		],
+		"name": "setTokenAddress",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "devAddress",
+		"outputs": [
 			{
-				"name": "recipient",
+				"name": "",
 				"type": "address"
-			},
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "aTot",
+		"outputs": [
 			{
-				"name": "amount",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "transferFrom",
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "claimAirdrop",
 		"outputs": [
 			{
 				"name": "success",
@@ -71,34 +91,60 @@ const sttabi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "spender",
-				"type": "address"
+				"name": "_aSBlock",
+				"type": "uint256"
 			},
 			{
-				"name": "addedValue",
+				"name": "_aEBlock",
+				"type": "uint256"
+			},
+			{
+				"name": "_aAmt",
+				"type": "uint256"
+			},
+			{
+				"name": "_aCap",
 				"type": "uint256"
 			}
 		],
-		"name": "increaseAllowance",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"name": "startAirdrop",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"constant": true,
-		"inputs": [
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
 			{
-				"name": "account",
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "balanceOf",
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "aEBlock",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "remainingTokens",
 		"outputs": [
 			{
 				"name": "balance",
@@ -110,67 +156,12 @@ const sttabi = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"name": "subtractedValue",
-				"type": "uint256"
-			}
-		],
-		"name": "decreaseAllowance",
+		"constant": true,
+		"inputs": [],
+		"name": "aCap",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"name": "remaining",
 				"type": "uint256"
 			}
 		],
@@ -179,25 +170,84 @@ const sttabi = [
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "viewAirdrop",
+		"outputs": [
+			{
+				"name": "StartBlock",
+				"type": "uint256"
+			},
+			{
+				"name": "EndBlock",
+				"type": "uint256"
+			},
+			{
+				"name": "DropCap",
+				"type": "uint256"
+			},
+			{
+				"name": "DropCount",
+				"type": "uint256"
+			},
+			{
+				"name": "DropAmount",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "clearBNB",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "aAmt",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "token",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
 				"indexed": true,
-				"name": "from",
+				"name": "_from",
 				"type": "address"
 			},
 			{
 				"indexed": true,
-				"name": "to",
+				"name": "_to",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "value",
-				"type": "uint256"
 			}
 		],
-		"name": "Transfer",
+		"name": "OwnershipTransferred",
 		"type": "event"
 	},
 	{
@@ -205,21 +255,16 @@ const sttabi = [
 		"inputs": [
 			{
 				"indexed": true,
-				"name": "owner",
+				"name": "_from",
 				"type": "address"
 			},
 			{
 				"indexed": true,
-				"name": "spender",
+				"name": "_to",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "value",
-				"type": "uint256"
 			}
 		],
-		"name": "Approval",
+		"name": "DeveloperTransferred",
 		"type": "event"
 	}
 ];
